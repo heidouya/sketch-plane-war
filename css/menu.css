@@ -1,0 +1,90 @@
+.screen--menu {
+  padding: calc(var(--u) * 30) calc(var(--u) * 26) calc(var(--u) * 18);
+}
+
+.title {
+  margin: calc(var(--u) * 22) 0 0;
+  font-size: calc(var(--u) * 46);
+  line-height: 1;
+  text-align: center;
+  letter-spacing: calc(var(--u) * 8);
+  text-indent: calc(var(--u) * 8);
+  font-weight: 700;
+  color: var(--ink);
+  text-shadow:
+    calc(var(--u) * 2) calc(var(--u) * 2) 0 rgba(58, 56, 51, 0.18),
+    calc(var(--u) * 4) calc(var(--u) * 4) 0 rgba(58, 56, 51, 0.08);
+}
+
+.title-sub {
+  margin: calc(var(--u) * 12) 0 0;
+  text-align: center;
+  font-size: calc(var(--u) * 9);
+  letter-spacing: calc(var(--u) * 2.6);
+  color: var(--ink-faint);
+}
+
+.menu-plane {
+  margin-top: calc(var(--u) * 24);
+  display: flex;
+  justify-content: center;
+}
+
+.menu-plane img {
+  width: calc(var(--u) * 176);
+  height: auto;
+  filter: drop-shadow(0 calc(var(--u) * 3) 0 rgba(58, 56, 51, 0.12));
+  animation: hover 5.5s ease-in-out infinite;
+}
+
+@keyframes hover {
+  0%, 100% { transform: translateY(calc(var(--u) * -3)) rotate(-0.4deg); }
+  50% { transform: translateY(calc(var(--u) * 4)) rotate(0.4deg); }
+}
+
+.menu-nav {
+  margin-top: calc(var(--u) * 28);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--u) * 13);
+}
+
+.btn--menu {
+  width: calc(var(--u) * 292);
+  height: calc(var(--u) * 60);
+  font-size: calc(var(--u) * 21);
+}
+
+.menu-nav .btn:nth-child(1) { transform: rotate(-0.7deg); }
+.menu-nav .btn:nth-child(2) { transform: rotate(0.5deg); }
+.menu-nav .btn:nth-child(3) { transform: rotate(-0.4deg); }
+.menu-nav .btn:nth-child(1):active,
+.menu-nav .btn:nth-child(2):active,
+.menu-nav .btn:nth-child(3):active {
+  transform: translateY(calc(var(--u) * 2));
+}
+
+.menu-foot {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(var(--u) * 10);
+  padding: 0 calc(var(--u) * 2);
+}
+
+.btn--tiny {
+  height: calc(var(--u) * 34);
+  padding: 0 calc(var(--u) * 14);
+  font-size: calc(var(--u) * 12);
+  letter-spacing: calc(var(--u) * 1);
+}
+
+.hint {
+  font-size: calc(var(--u) * 11);
+  color: var(--ink-soft);
+  letter-spacing: calc(var(--u) * 0.5);
+  text-align: right;
+  line-height: 1.4;
+}

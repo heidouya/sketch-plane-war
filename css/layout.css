@@ -1,0 +1,47 @@
+/* 舞台：固定 9:16，桌面端居中留边，手机端铺满 */
+.stage {
+  position: relative;
+  width: min(100vw, 56.25vh);
+  height: min(100vh, 177.78vw);
+  aspect-ratio: 9 / 16;
+  background: var(--paper);
+  overflow: hidden;
+  box-shadow: 0 16px 46px rgba(56, 50, 36, 0.32);
+}
+
+@supports (height: 100dvh) {
+  .stage {
+    width: min(100vw, 56.25dvh);
+    height: min(100dvh, 177.78vw);
+  }
+}
+
+@media (min-width: 720px) {
+  .stage {
+    border-radius: 14px;
+  }
+}
+
+.game-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+.ui {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  pointer-events: auto;
+}

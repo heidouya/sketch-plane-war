@@ -1,0 +1,134 @@
+:root {
+  --u: 1px;
+  --ink: #3a3833;
+  --ink-soft: #7b7568;
+  --ink-faint: #a59e8d;
+  --paper: #f5f1e6;
+  --paper-deep: #eae4d5;
+  --font-hand: "Kaiti SC", "STKaiti", "KaiTi", "楷体", "FangSong", "仿宋", "Songti SC", serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #d8d1c0;
+  background-image: radial-gradient(circle at 50% 28%, #e7e0ce, #ccc4b1 72%);
+  font-family: var(--font-hand);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 2px dashed var(--ink-soft);
+  outline-offset: 4px;
+}
+
+/* 通用按钮：未生成手绘底图前用 CSS 画出胶囊，生成后由 PNG 接管 */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: calc(var(--u) * 1.4) solid rgba(58, 56, 51, 0.55);
+  background: rgba(247, 243, 233, 0.88);
+  color: var(--ink);
+  font-weight: 600;
+  letter-spacing: calc(var(--u) * 2);
+  box-shadow: calc(var(--u) * 2) calc(var(--u) * 3) 0 rgba(58, 56, 51, 0.1);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+}
+
+.btn.is-sketched {
+  border-color: transparent;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.btn:active {
+  transform: translateY(calc(var(--u) * 2));
+  box-shadow: none;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.btn--ghost {
+  color: var(--ink-soft);
+}
+
+/* 纸张纹理只做很轻的一层，避免抢画面 */
+.game-canvas {
+  image-rendering: auto;
+}
+
+/* 直接双击 index.html 时 ES Module 会被 CORS 拦截，这里兜底提示 */
+.boot-hint {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  max-width: min(92vw, 560px);
+  padding: 12px 18px;
+  background: rgba(247, 243, 233, 0.97);
+  border: 1px solid rgba(58, 56, 51, 0.4);
+  border-radius: 10px;
+  box-shadow: 0 6px 24px rgba(40, 34, 22, 0.16);
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--ink);
+  z-index: 10;
+}
+
+.boot-hint strong {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.boot-hint p {
+  margin: 0;
+}
+
+.boot-hint code {
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: rgba(58, 56, 51, 0.08);
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 12px;
+}

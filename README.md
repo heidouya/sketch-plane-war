@@ -6,6 +6,8 @@
 
 ![主菜单](docs/menu.png)
 
+![战斗画面](docs/game.png)
+
 ## 快速开始
 
 > **必须通过本地服务器打开，不能双击 `index.html`。**
